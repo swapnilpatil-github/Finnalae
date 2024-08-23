@@ -17,7 +17,7 @@ app.use(
 );
 
 // Fetch news from API
-app.get('/api/news', async (req, res) => {
+app.get('api/news', async (req, res) => {
   try {
     const response = await axios.get(
       `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS_API_KEY}`
