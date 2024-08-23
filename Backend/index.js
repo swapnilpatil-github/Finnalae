@@ -12,12 +12,14 @@ const PORT = process.env.PORT || 5000;
 app.use(
   cors({
     origin: "https://finnalae-ja8p.vercel.app", // Replace with your frontend deployment URL
-    optionsSuccessStatus: 200,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allowed methods
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
   })
 );
 
 // Fetch news from API
-app.get('api/news', async (req, res) => {
+app.get('/api/news', async (req, res) => {
   try {
     const response = await axios.get(
       `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS_API_KEY}`
