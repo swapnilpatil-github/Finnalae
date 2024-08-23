@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 // Enable CORS with specific origin
 app.use(
   cors({
-    origin: "https://finnalae-ja8p.vercel.app/", // Replace with your frontend deployment URL
+    origin: "https://finnalae-ja8p.vercel.app", // Replace with your frontend deployment URL
     optionsSuccessStatus: 200,
   })
 );
