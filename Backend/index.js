@@ -18,17 +18,19 @@ app.use(
   })
 );
 
-// Fetch news from API
 app.get('/api/news', async (req, res) => {
+  const query = req.query.q || ''; // Get the query parameter or set it to an empty string
   try {
     const response = await axios.get(
-      `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS_API_KEY}`
+      `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS_API_KEY}&q=${query}`
     );
-    res.json(response.data);
+    res.set('Access-Control-Allow-Origin', '*');
+    res.json(response.data); // Return the news articles as JSON
   } catch (error) {
     res.status(500).json({ message: 'Error fetching news', error });
   }
 });
+
 
 // Start server
 app.listen(PORT, () => {

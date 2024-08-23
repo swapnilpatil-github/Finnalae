@@ -12,15 +12,15 @@ function App() {
       // Replace 'http://localhost:5000' with your deployed backend link
       const response = await axios.get('https://finnalae.vercel.app/api/news', {
         params: {
-          q: query
+          q: query // Pass the search query to the backend
         }
       });
-      setNews(response.data.articles);
+      setNews(response.data.articles); // Set the news articles in the state
     } catch (error) {
       console.error('Error fetching news:', error);
     }
   };
-
+  
   // Effect to fetch news on component mount or when searchTerm changes
   useEffect(() => {
     fetchNews(searchTerm);
