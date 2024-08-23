@@ -10,7 +10,7 @@ function App() {
   const fetchNews = async (query = '') => {
     try {
       // Replace 'http://localhost:5000' with your deployed backend link
-      const response = await axios.get('https://finnalae.vercel.app/api/news/', {
+      const response = await axios.get('https://finnalae.vercel.app/api/news', {
         params: {
           q: query
         }
